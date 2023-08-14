@@ -5,9 +5,8 @@ import { type RouteState } from '../router'
 const { div, h1 } = elementFactory
 
 export default (routeState: RouteState) => {
-  console.log(routeState)
   state.title = routeState.query.thingy
-  return HtmlView(div({},
-    h1({}, 'Movie')
+  return HtmlView(div(
+    h1('Movie')
   ))
 }

@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "npm-start-dev",
+			"type": "npm",
+			"script": "start-dev",
+			"isBackground": true,
+			"problemMatcher": {
+				"owner": "npm",
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": ".*",
+					"endsPattern": "build ended with 0 errors"
+				},
+				"pattern": {
+					"regexp": "",
+				}
+			}
+		},
+	]
+}

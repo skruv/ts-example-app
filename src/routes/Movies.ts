@@ -5,7 +5,7 @@ const { div, h1 } = elementFactory
 
 export default () => {
   state.title = 'Movies'
-  return HtmlView(div({},
-    h1({}, 'Movies')
+  return HtmlView(div(
+    h1('Movies')
   ))
 }

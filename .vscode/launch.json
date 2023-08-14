@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "chrome",
+      "preLaunchTask": "npm-start-dev",
+      "url": "http://localhost:8000",
+    }
+  ]
+}
