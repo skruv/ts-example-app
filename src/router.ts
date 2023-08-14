@@ -4,15 +4,15 @@ import { elementFactory } from 'skruv'
 const { a } = elementFactory
 
 addEventListener('popstate', () => {
-  routeState.url = location.href
+  urlState.url = location.href
 })
 
-export const routeState = createState({ url: location.href })
+export const urlState = createState({ url: location.href })
 
 export const matches = (url: string | URL) => new URL(url, location.href).toString() === location.href
 
 export async function * Link (attributes: SkruvAHTMLAttributes & { href: string, class?: string }, ...children: SkruvHTMLPhrasingContentGroup[]) {
-  for await (const state of routeState) {
+  for await (const state of urlState) {
     yield a({
       // TODO: Async attributes are iffy here. Wrap in something that checks for generators/promises or require that a raw attributes object is passed in.
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
@@ -41,7 +41,7 @@ export interface RouteState {
 }
 
 export async function * Router<T> (routes: T & Record<string, T[keyof T] & ((routeState: RouteState) => any)>): AsyncGenerator<T[keyof T]> {
-  for await (const state of routeState) {
+  for await (const state of urlState) {
     const routeState: RouteState = {
       route: '',
       routeArguments: {},
